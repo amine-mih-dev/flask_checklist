@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<script  src='\static\update.js'></script>
+{% endblock %}
+
+{% block body %}
+
+<h1>Update Task</h1>
+<form id ="UpdateForm" action="/update/{{task.id}}" method="POST">
+    <input id="ucontent" type="text" name="content" value="{{task.content}}" required>
+    <input id="usubmit" type="submit" value="Update">
+</form>
+
+{% endblock %}
