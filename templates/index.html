@@ -6,30 +6,91 @@
 
 {% block body %}
 
+<div class="container">
+    <div class="row">
+    <form 
+        class= "col s12" 
+        id = 'AddForm' 
+        name = 'CreateTask' 
+        action="/" method="POST">
+        <div class="row">
+            <div class="input-field col s12">
+                <input 
+                    for ="Task" 
+                    class= "input-field col s9 #f3e5f5 purple lighten-5 " 
+                    type="text" 
+                    name="content" 
+                    id="content"
+                    style="border-radius: 9px;margin-top: 16px;">
+                <label 
+                    for="content"
+                    style="margin-top: 15px; margin-left:10px;">
+                Task Name</label>
+                <span class="helper-text"></span>
+                <button 
+                    class="btn wave-effect wave-light #ba68c8 purple lighten-2 right col s2" 
+                    type = "submit" style="border-radius: 9px; ">
+                    Add Task
+                </button>
+               <!-- <input 
+                for ="Desc" 
+                class= "input-field col s9 #f3e5f5 purple lighten-5 " 
+                type="text"  
+                name="desc" 
+                id="Descr"
+                style="border-radius: 9px;margin-top: 16px;">
+                <label 
+                    for="Descr"
+                    style="margin-top: 15px; margin-left:10px;">
+                    Task Descreption
+                </label>-->
+            </div>   
+        </div>
+    </form>
+        <div class="row">
+            <form action="/" class="col s12">
+                {% if tasks|length < 1  %}
+                <h4>There are no tasks. Create one below!</h4>
+                {% else %}
 
-<form id = 'AddForm' name = 'CreateTask' action="/" method="POST">
-    <input type="text" name="content" id="content">
-    <input type="submit" value="Add Task" id="submit">
-</form>
-{% if tasks|length < 1  %}
-<h4>There are no tasks. Create one below!</h4>
-{% else %}
-<table>
-    <tr>
-        <th>Task</th>
-        <th>Actions</th>
-    </tr>
+                    {% for task in tasks %}
+                    <div class="divider"></div>
+                        <div class="col s12" style="margin-top:10px;">
+                            <label 
+                                class="col s8  #f3e5f5 purple lighten-5" 
+                                type ="text"
+                                for="Task"
+                                style="height: 36px;
+                                        line-height: 36px;
+                                        font-size: 14px;
+                                        border-radius:5px;
+                                        margin-right: 10px;"> {{ task.content }} </label>
+                                <a 
+                                id = "submit"
+                                class="btn wave-effect wave-light col s1 left" 
+                                type = "submit"
+                                style = "margin-right:10px;"
+                                href="update/{{task.id}}">
+                                    update
+                                </a>
+                                <a 
+                                id="submit"
+                                class="btn wave-effect wave-light col s1 left" 
+                                type = "submit"
+                                href="delete/{{task.id}}"
+                                >
+                                    delete
+                                </a>
 
-    {% for task in tasks %}
-    <tr>
-        <td>{{ task.content }}</td>
-        <td>
-            <a href="delete/{{task.id}}"> Delete &nbsp;&nbsp;&nbsp;</a>
-            <a href="update/{{task.id}}">Update</a>
-        </td>
-    </tr>
-    {% endfor %}
-</table>
-{% endif %}
+                        </div>
+                    <div class="section">
+                    </div>
 
+                    {% endfor %}
+
+                {% endif %}
+        </form>
+        </div>
+    </div>
+</div>
 {% endblock %}

@@ -1,3 +1,5 @@
+
+
 function FormValidity(){  
   let content = document.getElementById("content")
   let submit = document.getElementById("submit")
