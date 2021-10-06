@@ -12,7 +12,7 @@ db = SQLAlchemy(app)
 class Todo(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     content = db.Column(db.String(300), nullable=False)
-
+    #description = db.Column(db.String(300), nullable=True)
     def __rep__(self):
         return '<Task %r>' % self.id
 
@@ -24,6 +24,7 @@ class Todo(db.Model):
 def home():
     if request.method == 'POST':
         task_content = request.form['content']
+        #task_description = request.form['Descr']
         new_task = Todo(content=task_content)
 
         try:
