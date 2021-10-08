@@ -17,33 +17,23 @@
             <div class="input-field col s12">
                 <input 
                     for ="Task" 
-                    class= "input-field col s9 #f3e5f5 purple lighten-5 " 
+                    class= "input-field col s12 #f3e5f5 purple lighten-5 " 
                     type="text" 
                     name="content" 
                     id="content"
-                    style="border-radius: 9px;margin-top: 16px;">
+                    style="border-radius: 9px;margin-top: 16px;"
+                    onfocusout = 'validateTask()'>
                 <label 
                     for="content"
-                    style="margin-top: 15px; margin-left:10px;">
+                    style="margin-top: 15px; margin-left:10px;"
+                    >
                 Task Name</label>
                 <span class="helper-text"></span>
                 <button 
                     class="btn wave-effect wave-light #ba68c8 purple lighten-2 right col s2" 
-                    type = "submit" style="border-radius: 9px; ">
+                    type = "submit" style="border-radius: 9px; " onclick= 'FormValidity()'>
                     Add Task
                 </button>
-               <!-- <input 
-                for ="Desc" 
-                class= "input-field col s9 #f3e5f5 purple lighten-5 " 
-                type="text"  
-                name="desc" 
-                id="Descr"
-                style="border-radius: 9px;margin-top: 16px;">
-                <label 
-                    for="Descr"
-                    style="margin-top: 15px; margin-left:10px;">
-                    Task Descreption
-                </label>-->
             </div>   
         </div>
     </form>
